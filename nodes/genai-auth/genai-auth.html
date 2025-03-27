@@ -1,0 +1,65 @@
+
+<script type="text/javascript">
+	RED.nodes.registerType('genai-auth', {
+		category: 'GenAI',
+		color: '#E6E0F8',
+		inputs: 1,
+		outputs: 1,
+		icon: 'font-awesome/fa-key',
+		label: function () {
+			return this.name || 'genai-auth';
+		},
+		defaults: {
+			name: { value: '' },
+			baseURL: { value: '', required: true },
+			authType: { value: 'apikey' },
+			username: { value: '' },
+			password: { value: '' },
+			apiKey: { value: '' },
+			apiSecret: { value: '' }
+		},
+		oneditprepare: function () {
+			$("#node-input-authType").on("change", function () {
+				const selected = $(this).val();
+				$(".login-fields").toggle(selected === "login");
+				$(".apikey-fields").toggle(selected === "apikey");
+			}).trigger("change");
+		}
+	});
+  </script>
+  
+  
+  
+  <script  type="text/html" data-template-name="genai-auth">
+	<div class="form-row">
+	  <label for="node-input-baseURL">Base URL</label>
+	  <input type="text" id="node-input-baseURL" placeholder="https://genai.exemplo.com">
+	</div>
+  
+	<div class="form-row">
+	  <label for="node-input-authType">Tipo de Autenticação</label>
+	  <select id="node-input-authType">
+		  <option value="login">Login e Senha</option>
+		  <option value="apikey">API Key</option>
+	  </select>
+	</div>
+  
+	<div class="form-row login-fields">
+	  <label for="node-input-username">Usuário</label>
+	  <input type="text" id="node-input-username">
+	</div>
+	<div class="form-row login-fields">
+	  <label for="node-input-password">Senha</label>
+	  <input type="password" id="node-input-password">
+	</div>
+  
+	<div class="form-row apikey-fields" style="display: none;">
+	  <label for="node-input-apiKey">API Key</label>
+	  <input type="text" id="node-input-apiKey">
+	</div>
+	<div class="form-row apikey-fields" style="display: none;">
+	  <label for="node-input-apiSecret">API Secret</label>
+	  <input type="text" id="node-input-apiSecret">
+	</div>
+  </script>
+  

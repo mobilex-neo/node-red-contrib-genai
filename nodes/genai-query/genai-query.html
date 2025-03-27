@@ -1,0 +1,30 @@
+<script type="text/javascript">
+	RED.nodes.registerType('genai-query', {
+	  category: 'GenAI',
+	  color: '#DAF7A6',
+	  inputs: 1,
+	  outputs: 1,
+	  icon: 'font-awesome/fa-database',
+	  label: function () {
+		return this.name || 'genai-query';
+	  },
+	  defaults: {
+		name: { value: '' },
+		context: { value: '' },
+		baseURL: { value: '' }
+	  }
+	});
+  </script>
+  
+
+<script  type="text/html" data-template-name="genai-query">
+  <div class="form-row">
+	<label for="node-input-context">Context</label>
+	<input type="text" name="node-input-context" placeholder="Ex: 00000-00000-00000-000000" id="node-input-context">
+  </div>
+  <div class="form-row">
+	<label for="nod-input-baseURL">Base URL</label>
+	<input type="text" name="node-input-baseURL" placeholder="https://genai.suaempresa.com.br" id="node-input-baseURL">
+  </div>
+  </script>
+  
