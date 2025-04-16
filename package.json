@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-genai",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Nós Node-RED para conexão com a plataforma GenAI",
 	"author": "Luiz Carvalho <dev@mobilex.tech>",
 	"license": "MIT",
@@ -9,22 +9,11 @@
 				 "hugginface", "llama", "mistral", "bert"],
 	"node-red": {
 	  "nodes": {
-		"genai-auth": "nodes/genai-auth/genai-auth.js",
+		"genai-auth": "nodes/genai-login/genai-login.js",
 		"genai-chat": "nodes/genai-chat/genai-chat.js",
 		"genai-context": "nodes/genai-context/genai-context.js",
 		"genai-ingest": "nodes/genai-ingest/genai-ingest.js",
-		"genai-document": "nodes/genai-document/genai-document.js",
 		"genai-summarize": "nodes/genai-summarize/genai-summarize.js",
-		"genai-translate": "nodes/genai-translate/genai-translate.js",
-		"genai-image": "nodes/genai-image/genai-image.js",
-		"genai-audio": "nodes/genai-audio/genai-audio.js",
-		"genai-video": "nodes/genai-video/genai-video.js",
-		"genai-task": "nodes/genai-task/genai-task.js",
-		"genai-code": "nodes/genai-code/genai-code.js",
-		"genai-sentiment": "nodes/genai-sentiment/genai-sentiment.js",
-		"genai-entity": "nodes/genai-entity/genai-entity.js",
-		"genai-relation": "nodes/genai-relation/genai-relation.js",
-		"genai-query": "nodes/genai-query/genai-query.js",
 		"genai-qa": "nodes/genai-qa/genai-qa.js"
 	  }
 	},

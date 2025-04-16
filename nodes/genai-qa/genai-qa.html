@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('genai-qa',{
+        category: 'genai',
+        color: "#FF7043",
+        defaults: {
+            name: { value:"" },
+            askUrl: { value:"https://llama.mobilex.tech/llm/ask", required:true },
+            contextId: { value:"", required:true },
+            prompt: { value:"", required:true }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-question-circle",
+        label: function() {
+            return this.name || "ask";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="genai-qa">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Nome</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-askUrl"><i class="fa fa-globe"></i> Ask URL</label>
+        <input type="text" id="node-input-askUrl" placeholder="https://llama.mobilex.tech/llm/ask">
+    </div>
+    <div class="form-row">
+        <label for="node-input-contextId"><i class="fa fa-id-badge"></i> Context ID</label>
+        <input type="text" id="node-input-contextId" placeholder="Context ID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-prompt"><i class="fa fa-comment"></i> Prompt</label>
+        <input type="text" id="node-input-prompt" placeholder="Digite sua pergunta">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="genai-qa">
+    <p>
+        Este nó envia uma pergunta (prompt) para o serviço LLM utilizando um context_id especificado. O payload é enviado em formato JSON e a resposta é atribuída a <code>msg.payload</code>.
+    </p>
+</script>

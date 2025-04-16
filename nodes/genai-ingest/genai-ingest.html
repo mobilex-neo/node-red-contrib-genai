@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('genai-ingest',{
+        category: 'genai',
+        color: "#C0DEED",
+        defaults: {
+            name: { value:"" },
+            ingestUrl: { value:"https://llama.mobilex.tech/llm/ingest", required:true },
+            uuid: { value:"", required:false },
+            filePath: { value:"", required:true }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-upload",
+        label: function() {
+            return this.name || "ingest";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="genai-ingest">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Nome</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ingestUrl"><i class="fa fa-globe"></i> Ingest URL</label>
+        <input type="text" id="node-input-ingestUrl" placeholder="https://llama.mobilex.tech/llm/ingest">
+    </div>
+    <div class="form-row">
+        <label for="node-input-uuid"><i class="fa fa-id-badge"></i> UUID (Opcional)</label>
+        <input type="text" id="node-input-uuid" placeholder="(Opcional)">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filePath"><i class="fa fa-file"></i> Caminho do Arquivo</label>
+        <input type="text" id="node-input-filePath" placeholder="/caminho/para/o/arquivo.pdf">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="genai-ingest">
+    <p>
+        Este nó envia um arquivo para o serviço LLM utilizando multipart/form-data. Informe o caminho completo do arquivo a ser enviado.
+    </p>
+</script>

@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('genai-contexts',{
+        category: 'genai',
+        color: "#AB47BC",
+        defaults: {
+            name: { value:"" },
+            contextsUrl: { value:"https://llama.mobilex.tech/context", required:true }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-folder-open",
+        label: function() {
+            return this.name || "contexts";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="genai-contexts">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Nome</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-contextsUrl"><i class="fa fa-globe"></i> Contexts URL</label>
+        <input type="text" id="node-input-contextsUrl" placeholder="https://llama.mobilex.tech/context">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="genai-contexts">
+    <p>
+        Este nó realiza uma requisição GET ao serviço LLM para obter a lista de contextos disponíveis e os retorna em <code>msg.payload</code>.
+    </p>
+</script>

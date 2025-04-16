@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    RED.nodes.registerType('genai-chat',{
+        category: 'genai',
+        color: "#fdd0a2",
+        defaults: {
+            name: { value:"" },
+            chatUrl: { value:"https://llama.mobilex.tech/llm/chat", required:true },
+            chatId: { value:"", required:false }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-comments",
+        label: function() {
+            return this.name||"genai-chat";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="genai-chat">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Nome</label>
+        <input type="text" id="node-input-name" placeholder="Nome do nó">
+    </div>
+    <div class="form-row">
+        <label for="node-input-chatUrl"><i class="fa fa-globe"></i> Chat URL</label>
+        <input type="text" id="node-input-chatUrl" placeholder="https://llama.mobilex.tech/llm/chat">
+    </div>
+    <div class="form-row">
+        <label for="node-input-chatId"><i class="fa fa-id-badge"></i> Chat ID</label>
+        <input type="text" id="node-input-chatId" placeholder="(Opcional)">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="genai-chat">
+    <p>
+        Este nó envia uma mensagem para o serviço LLM via endpoint chat. O token deve ser incluído na mensagem ou configurado previamente.
+    </p>
+</script>

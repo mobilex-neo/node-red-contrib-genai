@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    RED.nodes.registerType('genai-summarize',{
+        category: 'genai',
+        color: "#D4E157",
+        defaults: {
+            name: { value:"" },
+            summarizeUrl: { value:"https://llama.mobilex.tech/llm/summarize", required:true },
+            uuid: { value:"", required:false },
+            filePath: { value:"", required:true }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-sticky-note",
+        label: function() {
+            return this.name || "genai-summarize";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="genai-summarize">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Nome</label>
+        <input type="text" id="node-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-summarizeUrl"><i class="fa fa-globe"></i> Summarize URL</label>
+        <input type="text" id="node-input-summarizeUrl" placeholder="https://llama.mobilex.tech/llm/summarize">
+    </div>
+    <div class="form-row">
+        <label for="node-input-uuid"><i class="fa fa-id-badge"></i> UUID (Opcional)</label>
+        <input type="text" id="node-input-uuid" placeholder="(Opcional)">
+    </div>
+    <div class="form-row">
+        <label for="node-input-filePath"><i class="fa fa-file"></i> Caminho do Arquivo</label>
+        <input type="text" id="node-input-filePath" placeholder="/caminho/para/o/arquivo.pdf">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="genai-summarize">
+    <p>
+        Este nó envia um arquivo para o serviço LLM para obter uma síntese (sumarização) do documento. Informe o caminho completo do arquivo.
+    </p>
+</script>
