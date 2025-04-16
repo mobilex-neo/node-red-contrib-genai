@@ -1,6 +1,6 @@
 {
 	"name": "node-red-contrib-genai",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Nós Node-RED para conexão com a plataforma GenAI",
 	"author": "Luiz Carvalho <dev@mobilex.tech>",
 	"license": "MIT",
